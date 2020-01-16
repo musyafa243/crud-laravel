@@ -19,9 +19,6 @@
         <a class="nav-link" href="{{ url('/dashboard') }}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/crud') }}">Daftar Barang</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{{ url('/items') }}">Detail Barang</a>
       </li>
     </ul>

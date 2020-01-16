@@ -36,6 +36,12 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'code' => 'required',
+            'jumlah' => 'required'
+        ]);
+
         $item = new item;
         $item->nama=$request->nama;
         $item->code=$request->code;
@@ -47,7 +53,7 @@ class ItemsController extends Controller
         $item->save();
 
 
-        return redirect('/items');
+        return redirect('/items')->with('status', 'Data Barang Berhasil Ditambahkan!');
     }
 
     /**
@@ -69,7 +75,7 @@ class ItemsController extends Controller
      */
     public function edit(item $item)
     {
-        //
+        return view('items.edit', compact('item'));
     }
 
     /**
@@ -81,7 +87,13 @@ class ItemsController extends Controller
      */
     public function update(Request $request, item $item)
     {
-        //
+        item::where('id', $item->id)
+            ->update([
+                'nama' => $request->nama,
+                'code' => $request->code,
+                'jumlah' => $request->jumlah
+            ]);
+            return redirect('/items')->with('status', 'Data Barang Berhasil Diubah!');
     }
 
     /**
@@ -92,6 +104,7 @@ class ItemsController extends Controller
      */
     public function destroy(item $item)
     {
-        //
+        item::destroy($item->id);
+        return redirect('/items')->with('status', 'Data Barang Berhasil Dihapus!');
     }
 }
