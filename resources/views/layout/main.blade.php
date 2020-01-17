@@ -22,9 +22,7 @@
         <a class="nav-link" href="{{ url('/items') }}">Detail Barang</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
-    </form>
+    <a href="/logout" type="button" class="btn btn-info">Logout</a>
   </div>
   </div>
 </nav>

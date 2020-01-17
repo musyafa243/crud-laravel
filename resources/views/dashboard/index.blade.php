@@ -10,7 +10,7 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <p>Selamat Datang, </p> 
+                    Selamat Datang, <b><span>{{ auth()->user()->name }}</span></b>
                     <my-button text="My New Text Button" type="submit"></my-button>
                 </div>
             </div>

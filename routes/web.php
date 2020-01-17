@@ -11,14 +11,25 @@
 |
 */
 
-Route::get('/dashboard','PagesController@home');
-Route::get('/crud/index','CrudController@index');
-Route::get('/items','ItemsController@index');
-Route::get('/items/create','ItemsController@create');
-Route::get('/items/{item}','ItemsController@show');
-Route::post('/items','ItemsController@store');
-Route::delete('/items/{item}','ItemsController@destroy');
-Route::get('/items/{item}/edit','ItemsController@edit');
-Route::patch('/items/{item}','ItemsController@update');
+Route::get('/', function (){
+    return view('home');
+});
+
+Route::get('/login','AuthController@login')->name('login');
+Route::post('/postlogin','AuthController@postlogin');
+Route::get('/logout','AuthController@logout');
+
+Route::group(['middleware'=>'auth'], function (){
+    Route::get('/dashboard','DashboardController@index')->middleware('auth');
+    Route::get('/crud/index','CrudController@index');
+    Route::get('/items','ItemsController@index');
+    Route::get('/items/create','ItemsController@create');
+    Route::get('/items/{item}','ItemsController@show');
+    Route::post('/items','ItemsController@store');
+    Route::delete('/items/{item}','ItemsController@destroy');
+    Route::get('/items/{item}/edit','ItemsController@edit');
+    Route::patch('/items/{item}','ItemsController@update');
+
+});
 
 
