@@ -8,12 +8,13 @@
 <body>
 <div class="login-page">
   <div class="form">
-    <form class="login-form" action="/postlogin" method="post">
+  <form class="login-form" action="/registration" method="post">
       {{@csrf_field()}}
+      <input name="name" type="text" placeholder="name"/>
       <input name="email" type="text" placeholder="email"/>
       <input name="password" type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="{{ url('/registration') }}">Create an account</a></p>
+      <button>create</button>
+      <p class="message">Already registered? <a href="/login">Sign In</a></p>
     </form>
   </div>
 </div>

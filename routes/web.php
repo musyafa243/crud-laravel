@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function (){
-    return view('home');
+    return view('/auths/login');
 });
+
+Route::get('/registration', 'RegistrationController@create');
+Route::post('registration', 'RegistrationController@store');
 
 Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
