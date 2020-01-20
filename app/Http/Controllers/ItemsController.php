@@ -87,6 +87,11 @@ class ItemsController extends Controller
      */
     public function update(Request $request, item $item)
     {
+        $request->validate([
+            'nama' => 'required',
+            'code' => 'required',
+            'jumlah' => 'required'
+        ]);
         item::where('id', $item->id)
             ->update([
                 'nama' => $request->nama,

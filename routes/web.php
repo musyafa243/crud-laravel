@@ -32,7 +32,8 @@ Route::group(['middleware'=>'auth'], function (){
     Route::delete('/items/{item}','ItemsController@destroy');
     Route::get('/items/{item}/edit','ItemsController@edit');
     Route::patch('/items/{item}','ItemsController@update');
-
+    Route::get('user','UserController@index');
+    Route::get('user/json','UserController@json');
 });
 
 
