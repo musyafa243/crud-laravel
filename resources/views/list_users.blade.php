@@ -2,7 +2,6 @@
 
 @section('title', 'table')
     
-
 @section('content')
 <div class="container mt-3">
     <table class="table table table-striped" id="users-table">
@@ -13,6 +12,7 @@
                 <th>Email</th>
                 <th>Created At</th>
                 <th>Updated At</th>
+                <th>Keterangan</th>
             </tr>
         </thead>
     </table>
@@ -28,10 +28,17 @@ $(function() {
         ajax: 'user/json',
         columns: [
             { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'email', name: 'email' },
+            { data: 'nama', name: 'nama' },
+            { data: 'jumlah', name: 'jumlah' },
             { data: 'created_at', name: 'created_at' },
-            { data: 'updated_at', name: 'updated_at' }
+            { data: 'updated_at', name: 'updated_at' },
+            { data: null,
+                            render: function(data){
+                                var view_button = '<a class="btn btn-primary" role="button" aria-pressed="true">Detail</a>';
+                            
+                                return view_button;}
+                        },
+            
         ]
     });
 });

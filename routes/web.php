@@ -29,7 +29,7 @@ Route::group(['middleware'=>'auth'], function (){
     Route::get('/items/create','ItemsController@create');
     Route::get('/items/{item}','ItemsController@show');
     Route::post('/items','ItemsController@store');
-    Route::delete('/items/{item}','ItemsController@destroy');
+    Route::get('/items/{item}/destroy','ItemsController@destroy');
     Route::get('/items/{item}/edit','ItemsController@edit');
     Route::patch('/items/{item}','ItemsController@update');
     Route::get('user','UserController@index');

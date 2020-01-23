@@ -19,7 +19,7 @@
                     <label for="nama">Code Barang</label>
                     <input type="text" class="form-control @error('code') is-invalid @enderror" id="nama" placeholder="Masukkan code" name="code" value="{{old('code')}}">
                     <div class="invalid-feedback">
-                    Tolong Masukkan Code Barang.
+                    Tolong Masukkan Code Barang Minimal 8 angka
                     </div>
                 </div>
                 <div class="form-group">

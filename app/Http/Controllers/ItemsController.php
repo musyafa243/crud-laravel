@@ -110,6 +110,6 @@ class ItemsController extends Controller
     public function destroy(item $item)
     {
         item::destroy($item->id);
-        return redirect('/items')->with('status', 'Data Barang Berhasil Dihapus!');
+        return redirect('/user');
     }
 }

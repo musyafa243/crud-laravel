@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemsTable extends Migration
+class CreateKoordinarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->integer('id');
+        Schema::create('koordinars', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('brg_id');
             $table->string('nama');
-            $table->char('code', '255');
-            $table->char('jumlah', '255');
+            $table->text('almt');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('koordinars');
     }
 }
