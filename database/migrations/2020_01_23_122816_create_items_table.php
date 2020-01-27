@@ -14,10 +14,10 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->integer('id');
+            $table->bigIncrements('id');
+            $table->integer('code');
             $table->string('nama');
-            $table->char('code', '255');
-            $table->char('jumlah', '255');
+            $table->integer('jumlah');
             $table->timestamps();
         });
     }

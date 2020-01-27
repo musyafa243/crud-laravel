@@ -15,9 +15,9 @@ class CreateKoordinarsTable extends Migration
     {
         Schema::create('koordinars', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('brg_id');
-            $table->string('nama');
-            $table->text('almt');
+            $table->bigInteger('koordinar_id');
+            $table->string('nama_koor');
+            $table->text('alamat');
             $table->timestamps();
         });
     }

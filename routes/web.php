@@ -34,6 +34,8 @@ Route::group(['middleware'=>'auth'], function (){
     Route::patch('/items/{item}','ItemsController@update');
     Route::get('user','UserController@index');
     Route::get('user/json','UserController@json');
+    Route::get('/koordinar','KoordinarController@index');
+    Route::get('/koordinar/create','KoordinarController@create');
 });
 
 

@@ -14,7 +14,7 @@
     <h5 class="card-title">{{ $item->nama }}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Code Barang : {{ $item->code }}</h6>
     <p class="card-text">Jumlah Barang : {{ $item->jumlah }}</p>
-    <p class="card-text">Nama Koordinator : {{ $item->koordinar['nama_koor'] }}</p>
+    <p class="card-text">Jumlah Barang : {{ $item->koordinar['nama'] }}</p>
 
      <a href="{{ $item->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
      <a href="#" class="btn btn-danger btn-sm destroy" item-id="{{$item->id}}">Delete</a>

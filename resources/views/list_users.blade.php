@@ -9,9 +9,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Created At</th>
-                <th>Updated At</th>
+                <th>Code</th>
+                <th>Jumlah</th>
                 <th>Keterangan</th>
             </tr>
         </thead>
@@ -29,12 +28,11 @@ $(function() {
         columns: [
             { data: 'id', name: 'id' },
             { data: 'nama', name: 'nama' },
+            { data: 'code', name: 'code' },
             { data: 'jumlah', name: 'jumlah' },
-            { data: 'created_at', name: 'created_at' },
-            { data: 'updated_at', name: 'updated_at' },
             { data: null,
                             render: function(data){
-                                var view_button = '<a class="btn btn-primary" role="button" aria-pressed="true">Detail</a>';
+                                var view_button = '<a href="/items/' + data.id + '"   class="btn btn-primary" role="button" aria-pressed="true">Detail</a>';
                             
                                 return view_button;}
                         },
@@ -43,4 +41,8 @@ $(function() {
     });
 });
 </script>
+
+<div class="container">
+    <a href="/koordinar/create" class="btn btn-info my-3">+ Tambah Data Koordinator</a>
+</div>
 @endpush

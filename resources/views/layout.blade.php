@@ -27,6 +27,8 @@
             @yield('content')
         </div>
 
+        @yield('footer')
+
         <!-- jQuery -->
         <script src="//code.jquery.com/jquery.js"></script>
         <!-- DataTables -->
