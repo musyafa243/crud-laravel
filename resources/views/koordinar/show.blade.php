@@ -11,13 +11,12 @@
 
 <div class="card" >
   <div class="card-body">
-    <h5 class="card-title">{{ $item->nama }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Code Barang : {{ $item->code }}</h6>
-    <p class="card-text">Jumlah Barang : {{ $item->jumlah }}</p>
-    <p class="card-text">Jumlah Barang : {{ $item->koordinar['nama'] }}</p>
+    <h5 class="card-title">Nama Koordinator : {{ $koordinar->nama_koor }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Alamat : {{ $koordinar->alamat }}</h6>
+    <p>Nama Barang : {{ $koordinar->item->nama }}</p>
 
-     <a href="{{ $item->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
-     <a href="#" class="btn btn-danger btn-sm destroy" item-id="{{$item->id}}">Delete</a>
+     <a href="{{ $koordinar->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+     <a href="#" class="btn btn-danger btn-sm destroy" koordinar-id="{{$koordinar->id}}">Delete</a>
   </div>
 </div>
 </div>
@@ -27,10 +26,10 @@
 @section('footer')
     <script>
       $('.destroy').click(function(){
-         var item_id = $(this).attr('item-id')
+         var koordinar_id = $(this).attr('koordinar-id')
          swal({
            title: "Anda Yakin ?",
-           text: "Mau dihapus data barang dengan id "+item_id+" ??",
+           text: "Mau dihapus data barang dengan id "+koordinar_id+" ??",
            icon: "warning",
            buttons: true,
            dangerMode: true,
@@ -38,7 +37,7 @@
          .then((willDelete) => {
            console.log(willDelete);
           if (willDelete){
-              window.location = "/items/"+item_id+"/destroy";
+              window.location = "/koordinar/"+koordinar_id+"/destroy";
           }
          });
       })

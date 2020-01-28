@@ -8,6 +8,6 @@ class koordinar extends Model
 {
     public function item()
     {
-        return $this->belongsTo(item::class);
+        return $this->belongsTo(item::class, 'item_id');
     }
 }

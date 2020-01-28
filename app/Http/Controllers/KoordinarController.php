@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\koordinar;
+use App\item;
 use Illuminate\Http\Request;
 
 class KoordinarController extends Controller
@@ -13,8 +14,8 @@ class KoordinarController extends Controller
      */
     public function index()
     {
-        $koordinars = koordinar::all();
-       return view('koordinar.index', compact('koordinars'));
+        $koordinar = koordinar::all();
+       return view('koordinar.index', ['koordinar' => $koordinar]);
     }
 
     /**
@@ -36,7 +37,22 @@ class KoordinarController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_koor' => 'required',
+            'alamat' => 'required',
+            'item_id' => 'required'
+        ]);
+
+        $koordinar = new koordinar;
+        $koordinar->nama_koor=$request->nama_koor;
+        $koordinar->alamat=$request->alamat;
+        $koordinar->item_id=$request->item_id;
+
         //
+        //dd($request->jumlah);
+
+        $koordinar->save();
+        return redirect('/koordinar')->with('status', 'Data Koordinator Berhasil Ditambahkan!');
     }
 
     /**
@@ -47,7 +63,7 @@ class KoordinarController extends Controller
      */
     public function show(koordinar $koordinar)
     {
-        return view('koordinar.show', compact('koordinars'));
+        return view('koordinar.show', compact('koordinar'));
     }
 
     /**
@@ -58,7 +74,8 @@ class KoordinarController extends Controller
      */
     public function edit(koordinar $koordinar)
     {
-        //
+        $item = item::all();
+        return view('koordinar.edit', compact('item') ,compact('koordinar'));
     }
 
     /**
@@ -72,18 +89,16 @@ class KoordinarController extends Controller
     {
         $request->validate([
             'nama_koor' => 'required',
-            'koordinar_id' => 'required',
-            'alamat' => 'required',
-            'nama_koor' => 'required'
+            'item_id' => 'required',
+            'alamat' => 'required'
         ]);
-        item::where('id', $item->id)
+        koordinar::where('id', $koordinar->id)
             ->update([
                 'nama_koor' => $request->nama_koor,
-                'koordinar_id' => $request->koordinar_id,
-                'alamat' => $request->alamat,
-                'nama_koor' => $request->nama_koor
+                'item_id' => $request->item_id,
+                'alamat' => $request->alamat
             ]);
-            return redirect('/koordinar')->with('status', 'Data Barang Berhasil Diubah!');
+            return redirect('/koordinar')->with('status', 'Data Koordinator Berhasil Diubah!');
     }
 
     /**
@@ -94,6 +109,7 @@ class KoordinarController extends Controller
      */
     public function destroy(koordinar $koordinar)
     {
-        //
+        koordinar::destroy($koordinar->id);
+        return redirect('/koordinar');
     }
 }

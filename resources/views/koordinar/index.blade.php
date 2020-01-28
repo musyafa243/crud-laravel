@@ -14,16 +14,16 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ($koordinars as $ko)
+        @foreach ($koordinar as $ko)
             <tr>
                 <td>{{$ko->id}}</td>
                 <td>{{$ko->nama_koor}}</td>
-                <td>{{$ko->items['nama']}}</td>
+                <td>{{$ko->item->nama}}</td>
                 <td>{{$ko->alamat}}</td>
                 <td><a href="/koordinar/{{$ko->id}}" class="badge badge-info">detail</a></a></td>
             </tr>
         @endforeach
     </tbody>
   </table>
-  
+  <a href="/koordinar/create" class="btn btn-info my-3">+ Tambah Data Koordinator</a>
 @endsection

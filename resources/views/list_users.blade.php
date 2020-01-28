@@ -43,6 +43,6 @@ $(function() {
 </script>
 
 <div class="container">
-    <a href="/koordinar/create" class="btn btn-info my-3">+ Tambah Data Koordinator</a>
+    <a href="/items/create" class="btn btn-info my-3">+ Tambah Data Barang</a>
 </div>
 @endpush

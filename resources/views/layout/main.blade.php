@@ -27,9 +27,6 @@
         <a class="nav-link" href="{{ url('/dashboard') }}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/items') }}">Table Koordinator</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="{{ url('/user') }}">Table Barang</a>
       </li>
       <li class="nav-item">

@@ -6,27 +6,34 @@
 <div class="container mt-5">
         <div class="col-8">
             <h1>Ubah Data Barang</h1>
-            <form method="post" action="/items/{{ $item->id }}">
+            <form method="post" action="/koordinar/{{ $koordinar->id }}">
                 @method('patch')
                 @csrf
                 <div class="form-group">
-                    <label for="nama">Nama Barang</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama" name="nama" value="{{ $item->nama }}">
+                    <label for="nama-koor">Nama Koordinator</label>
+                    <input type="text" class="form-control @error('nama_koor') is-invalid @enderror" id="nama_koor" placeholder="Masukkan Nama" name="nama_koor" value="{{ $koordinar->nama_koor }}">
                     <div class="invalid-feedback">
-                        Tolong Masukkan Nama Barang.
+                        Tolong Masukkan Nama Koordinator.
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="nama">Code Barang</label>
-                    <input type="text" class="form-control @error('code') is-invalid @enderror" id="nama" placeholder="Masukkan code" name="code" value="{{ $item->code }}">
+                    <label for="nama">Pilih Barang</label>
+                    <select name="item_id" class="form-control @error('item_id') is-invalid @enderror">
+                        <option selected value="">Pilih</option>
+                        @foreach ($item as $it)
+                        <option  value="{{$it->id}}"> {{$it->id}} - {{$it->nama}}</option>
+                        @endforeach
+                      </select>
+                      @error ('item_id')<div class="invalin-feedback">{{$message}}</div>@enderror
+            </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan Alamat" name="alamat" value="{{ $koordinar->alamat }}"></textarea>
                     <div class="invalid-feedback">
-                    Tolong Masukkan Code Barang.
+                    Tolong Masukkan Alamat.
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="jumlah">Jumlah Barang</label>
-                    <input type="text" class="form-control" id="jumlah" placeholder="Masukkan jumlah" name="jumlah" value="{{ $item->jumlah }}">
-                </div>
+                
                 <button class="btn btn-primary" type="submit">Ubah Data</button>
             </form>
         </div>

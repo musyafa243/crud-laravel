@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class item extends Model
 {
+    
     public function koordinar()
     {
-        return $this->hasOne(koordinar::class, 'koordinar_id' );
+        return $this->hasOne(koordinar::class);
     }
 }

@@ -36,6 +36,11 @@ Route::group(['middleware'=>'auth'], function (){
     Route::get('user/json','UserController@json');
     Route::get('/koordinar','KoordinarController@index');
     Route::get('/koordinar/create','KoordinarController@create');
+    Route::get('/koordinar/{koordinar}', 'KoordinarController@show');
+    Route::post('/koordinar','KoordinarController@store');
+    Route::get('/koordinar/{koordinar}/destroy','KoordinarController@destroy');
+    Route::get('/koordinar/{koordinar}/edit','KoordinarController@edit');
+    Route::patch('/koordinar/{koordinar}','KoordinarController@update');
 });
 
 

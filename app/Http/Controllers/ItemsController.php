@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\item;
-use App\koordinar;
+
 use Illuminate\Http\Request;
 
 class ItemsController extends Controller
@@ -53,8 +53,6 @@ class ItemsController extends Controller
         //dd($request->jumlah);
 
         $item->save();
-
-
         return redirect('/items')->with('status', 'Data Barang Berhasil Ditambahkan!');
     }
 
